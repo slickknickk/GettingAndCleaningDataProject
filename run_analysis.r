@@ -19,6 +19,8 @@
 #set working directory to the location where the UCI HAR Dataset was unzipped
 setwd('C:/Users/greenhn/Desktop/Data Scientist/R/data/UCI HAR Dataset/')
 
+# 1. Merge the training and the test sets to create one data set.
+
 # Read in the data from files
 activity        <- read.table("./activity_labels.txt",header = FALSE)
 features        <- read.table("./features.txt", header = FALSE)
@@ -31,7 +33,6 @@ subject_test    <- read.table("./test/subject_test.txt", header = FALSE)
 X_test          <- read.table("./test/X_test.txt", header = FALSE)
 Y_test          <- read.table("./test/Y_test.txt", header = FALSE)
 
-# 1. Merge the training and the test sets to create one data set.
 xmd <- rbind(X_train, X_test)
 ymd <- rbind(Y_train, Y_test)
 smd <- rbind(subject_train, subject_test)
@@ -73,5 +74,6 @@ bySubjectActivity <- summarize_each(bySubjectActivity,funs(mean))
 names(bySubjectActivity)[-c(1,2)] <- paste0("Avg", names(bySubjectActivity)[-c(1,2)])
 
 # Export the data sets 
-write.table(stdMeanData, 'C:/Users/greenhn/Desktop/Data Scientist/R/GettingAndCleaningDataProject/stdMeanData.txt',row.names=TRUE,sep='\t')
-write.table(bySubjectActivity, 'C:/Users/greenhn/Desktop/Data Scientist/R/GettingAndCleaningDataProject/bySubjectActivity.txt',row.names=TRUE,sep='\t')
+setwd('C:/Users/greenhn/Desktop/Data Scientist/R/GettingAndCleaningDataProject')
+write.table(stdMeanData, './stdMeanData.txt',row.names=TRUE,sep='\t')
+write.table(bySubjectActivity, './bySubjectActivity.txt',row.names=TRUE,sep='\t')
