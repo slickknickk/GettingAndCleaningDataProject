@@ -1,4 +1,76 @@
-Feature Selection 
+==================================================================
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+==================================================================
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+==================================================================
+
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
+
+Features:
+======================================
+
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+
+The source dataset includes the following files:
+=========================================
+
+- 'README.txt'
+
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+
+The following files are available for the train and test data. Their descriptions are equivalent. 
+
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+
+- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+
+- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
+
+Notes: 
+======
+- Features are normalized and bounded within [-1,1].
+- Each feature vector is a row on the text file.
+
+For more information about this dataset contact: activityrecognition@smartlab.ws
+
+License:
+========
+Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
+
+
+Feature Selection:
 =================
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
@@ -57,3 +129,102 @@ tBodyGyroMean
 tBodyGyroJerkMean
 
 The complete list of variables of each feature vector is available in 'features.txt'
+
+GettingAndCleaningDataProject Modifications
+=================
+- Training and test sets were merged to create one data set called stdMeanData.
+- Only the measurements on the mean and standard deviation for each measurement were extracted.
+- The descriptive activity names were used to name the activities in the data set
+- The data set was labeled with descriptive variable names.
+- From the merged data set, a second, independent tidy data set with the average of each variable for each activity and each subject was created.
+
+Variables in stdMeanData:
+=================
+ [1] "subjectID"                                          
+ [2] "activity"                                           
+ [3] "TimeBodyAccelerationMeanX"                          
+ [4] "TimeBodyAccelerationMeanY"                          
+ [5] "TimeBodyAccelerationMeanZ"                          
+ [6] "TimeBodyAccelerationStdDevX"                        
+ [7] "TimeBodyAccelerationStdDevY"                        
+ [8] "TimeBodyAccelerationStdDevZ"                        
+ [9] "TimeGravityAccelerationMeanX"                       
+[10] "TimeGravityAccelerationMeanY"                       
+[11] "TimeGravityAccelerationMeanZ"                       
+[12] "TimeGravityAccelerationStdDevX"                     
+[13] "TimeGravityAccelerationStdDevY"                     
+[14] "TimeGravityAccelerationStdDevZ"                     
+[15] "TimeBodyAccelerationJerkMeanX"                      
+[16] "TimeBodyAccelerationJerkMeanY"                      
+[17] "TimeBodyAccelerationJerkMeanZ"                      
+[18] "TimeBodyAccelerationJerkStdDevX"                    
+[19] "TimeBodyAccelerationJerkStdDevY"                    
+[20] "TimeBodyAccelerationJerkStdDevZ"                    
+[21] "TimeBodyAngularVelocityMeanX"                       
+[22] "TimeBodyAngularVelocityMeanY"                       
+[23] "TimeBodyAngularVelocityMeanZ"                       
+[24] "TimeBodyAngularVelocityStdDevX"                     
+[25] "TimeBodyAngularVelocityStdDevY"                     
+[26] "TimeBodyAngularVelocityStdDevZ"                     
+[27] "TimeBodyAngularVelocityJerkMeanX"                   
+[28] "TimeBodyAngularVelocityJerkMeanY"                   
+[29] "TimeBodyAngularVelocityJerkMeanZ"                   
+[30] "TimeBodyAngularVelocityJerkStdDevX"                 
+[31] "TimeBodyAngularVelocityJerkStdDevY"                 
+[32] "TimeBodyAngularVelocityJerkStdDevZ"                 
+[33] "TimeBodyAccelerationMagnitudeMean"                  
+[34] "TimeBodyAccelerationMagnitudeStdDev"                
+[35] "TimeGravityAccelerationMagnitudeMean"               
+[36] "TimeGravityAccelerationMagnitudeStdDev"             
+[37] "TimeBodyAccelerationJerkMagnitudeMean"              
+[38] "TimeBodyAccelerationJerkMagnitudeStdDev"            
+[39] "TimeBodyAngularVelocityMagnitudeMean"               
+[40] "TimeBodyAngularVelocityMagnitudeStdDev"             
+[41] "TimeBodyAngularVelocityJerkMagnitudeMean"           
+[42] "TimeBodyAngularVelocityJerkMagnitudeStdDev"         
+[43] "FrequencyBodyAccelerationMeanX"                     
+[44] "FrequencyBodyAccelerationMeanY"                     
+[45] "FrequencyBodyAccelerationMeanZ"                     
+[46] "FrequencyBodyAccelerationStdDevX"                   
+[47] "FrequencyBodyAccelerationStdDevY"                   
+[48] "FrequencyBodyAccelerationStdDevZ"                   
+[49] "FrequencyBodyAccelerationmeanFreq()X"               
+[50] "FrequencyBodyAccelerationmeanFreq()Y"               
+[51] "FrequencyBodyAccelerationmeanFreq()Z"               
+[52] "FrequencyBodyAccelerationJerkMeanX"                 
+[53] "FrequencyBodyAccelerationJerkMeanY"                 
+[54] "FrequencyBodyAccelerationJerkMeanZ"                 
+[55] "FrequencyBodyAccelerationJerkStdDevX"               
+[56] "FrequencyBodyAccelerationJerkStdDevY"               
+[57] "FrequencyBodyAccelerationJerkStdDevZ"               
+[58] "FrequencyBodyAccelerationJerkmeanFreq()X"           
+[59] "FrequencyBodyAccelerationJerkmeanFreq()Y"           
+[60] "FrequencyBodyAccelerationJerkmeanFreq()Z"           
+[61] "FrequencyBodyAngularVelocityMeanX"                  
+[62] "FrequencyBodyAngularVelocityMeanY"                  
+[63] "FrequencyBodyAngularVelocityMeanZ"                  
+[64] "FrequencyBodyAngularVelocityStdDevX"                
+[65] "FrequencyBodyAngularVelocityStdDevY"                
+[66] "FrequencyBodyAngularVelocityStdDevZ"                
+[67] "FrequencyBodyAngularVelocitymeanFreq()X"            
+[68] "FrequencyBodyAngularVelocitymeanFreq()Y"            
+[69] "FrequencyBodyAngularVelocitymeanFreq()Z"            
+[70] "FrequencyBodyAccelerationMagnitudeMean"             
+[71] "FrequencyBodyAccelerationMagnitudeStdDev"           
+[72] "FrequencyBodyAccelerationMagnitudemeanFreq()"       
+[73] "FrequencyBodyAccelerationJerkMagnitudeMean"         
+[74] "FrequencyBodyAccelerationJerkMagnitudeStdDev"       
+[75] "FrequencyBodyAccelerationJerkMagnitudemeanFreq()"   
+[76] "FrequencyBodyAngularVelocityMagnitudeMean"          
+[77] "FrequencyBodyAngularVelocityMagnitudeStdDev"        
+[78] "FrequencyBodyAngularVelocityMagnitudemeanFreq()"    
+[79] "FrequencyBodyAngularVelocityJerkMagnitudeMean"      
+[80] "FrequencyBodyAngularVelocityJerkMagnitudeStdDev"    
+[81] "FrequencyBodyAngularVelocityJerkMagnitudemeanFreq()"
+[82] "angle(tBodyAccelerationMean,gravity)"               
+[83] "angle(tBodyAccelerationJerkMean),gravityMean)"      
+[84] "angle(tBodyAngularVelocityMean,gravityMean)"        
+[85] "angle(tBodyAngularVelocityJerkMean,gravityMean)"    
+[86] "angle(X,gravityMean)"                               
+[87] "angle(Y,gravityMean)"                               
+[88] "angle(Z,gravityMean)" 
