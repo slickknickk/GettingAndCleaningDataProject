@@ -75,5 +75,5 @@ names(bySubjectActivity)[-c(1,2)] <- paste0("Avg", names(bySubjectActivity)[-c(1
 
 # Export the data sets 
 setwd('C:/Users/greenhn/Desktop/Data Scientist/R/GettingAndCleaningDataProject')
-write.table(stdMeanData, './stdMeanData.txt',row.names=TRUE,sep='\t')
-write.table(bySubjectActivity, './bySubjectActivity.txt',row.names=TRUE,sep='\t')
+write.table(stdMeanData, './stdMeanData.txt',row.names=FALSE,sep='\t')
+write.table(bySubjectActivity, './bySubjectActivity.txt',row.names=FALSE,sep='\t')
